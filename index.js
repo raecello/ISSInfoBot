@@ -28,7 +28,7 @@ if (req.queryResult.action == 'Get-lat-long') {
     }, (error) => {
         return res.json({
             fulfillmentText: 'Something went wrong!',
-            source: 'get-movie-details'
+            source: 'Get-lat-long'
         });
     });
 
@@ -59,13 +59,13 @@ if (req.queryResult.action == 'who-is-onboard') {
             }
             return res.json({
                 fulfillmentText: dataToSend,
-                source: 'get-movie-details'
+                source: 'who-is-onboard'
             });
         });
     }, (error) => {
         return res.json({
             fulfillmentText: 'Something went wrong!',
-            source: 'get-movie-details'
+            source: 'who-is-onboard'
         });
     });
     }
@@ -86,13 +86,13 @@ if (req.queryResult.action == 'whenOverHead') {
 
             return res.json({
                 fulfillmentText: dataToSend,
-                source: 'get-movie-details'
+                source: 'whenOverHead'
             });
         });
     }, (error) => {
         return res.json({
             fulfillmentText: 'Something went wrong!',
-            source: 'get-movie-details'
+            source: 'whenOverHead'
         });
     });
     }
