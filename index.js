@@ -6,6 +6,14 @@ const bodyParser = require('body-parser');
 const http = require('http');
 //const codeConvert = require('./countrycode.json');
 
+const server = express();
+server.use(bodyParser.urlencoded({
+    extended: true
+}));
+
+server.use(bodyParser.json());
+server.post('/get-ISS-details', (req, res) => {
+
 if (req.queryResult.action == 'Get-lat-long') {
 
     const reqUrl = encodeURI(`http://api.open-notify.org/iss-now.json`);
@@ -113,3 +121,8 @@ if (req.queryResult.action == 'whenOverHead') {
         return ('0' + mins).slice(-2); 
     }
     
+})
+
+server.listen((process.env.PORT || 8000), () => {
+    console.log("Server is up and running...");
+});
