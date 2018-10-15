@@ -16,7 +16,7 @@ app.use(bodyparser.urlencoded({ extended: false }));
 
 // Webhook route
 app.post("/get-ISS-details", function (req, res) {
-    res.send('why isnt this working');
+
     const reqUrl = encodeURI(`http://api.open-notify.org/iss-now.json`);
     http.get(reqUrl, (responseFromAPI) => {
         let completeResponse = '';
