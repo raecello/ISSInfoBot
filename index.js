@@ -5,7 +5,7 @@ var bodyparser = require('body-parser');
 var http = require('http');
 
 var app = express();
-app.use(bodyparser.urlencoded({ extended: false }));
+app.use(bodyparser.urlencoded({ extended: true }));
 
 
 app.post("/get-ISS-details", function (req, res) {
