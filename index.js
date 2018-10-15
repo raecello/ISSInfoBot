@@ -9,7 +9,7 @@ app.use(bodyparser.urlencoded({ extended: false }));
 
 
 app.post("/get-ISS-details", function (req, res) {
-    if (req.queryResult.action == 'Get-lat-long') {
+    if (req.body.queryResult.action == 'Get-lat-long') {
         
         const reqUrl = encodeURI(`http://api.open-notify.org/iss-now.json`);
         http.get(reqUrl, (responseFromAPI) => {
@@ -35,7 +35,7 @@ app.post("/get-ISS-details", function (req, res) {
             });
         });
 }
-
+});
 app.listen(process.env.PORT || 5000), () => {
     console.log("Server is up and running...");
 };
