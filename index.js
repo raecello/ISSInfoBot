@@ -131,7 +131,8 @@ app.post("/get-ISS-details", function (req, res) {
 
 
 
-app.listen((3000), () => {
+
+app.listen(process.env.PORT || 5000), () => {
     console.log("Server is up and running...");
-});
-// Logic for running your server with HTTPS here
+};
+
