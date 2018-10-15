@@ -1,5 +1,4 @@
 
-
 'use strict';
 
 
@@ -7,7 +6,7 @@
 // Dependencies 
 var express = require('express');
 var bodyparser = require('body-parser');
-
+var http = require('http');
 // Configuration
 var app = express();
 app.use(bodyparser.urlencoded({ extended: false }));
@@ -18,7 +17,7 @@ app.use(bodyparser.urlencoded({ extended: false }));
 
 // Webhook route
 app.post("/get-ISS-details", function (req, res) {
-    if (req.queryResult.action == 'Get-lat-long') {
+    //if (req.queryResult.action == 'Get-lat-long') {
 
         const reqUrl = encodeURI(`http://api.open-notify.org/iss-now.json`);
         http.get(reqUrl, (responseFromAPI) => {
@@ -44,7 +43,7 @@ app.post("/get-ISS-details", function (req, res) {
             });
         });
     
-        }
+        //}
     
     if (req.queryResult.action == 'who-is-onboard') {
     
@@ -135,4 +134,4 @@ app.post("/get-ISS-details", function (req, res) {
 app.listen((3000), () => {
     console.log("Server is up and running...");
 });
-// Logic for running your server w
+// Logic for running your server with HTTPS here
