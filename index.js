@@ -1,15 +1,19 @@
 'use strict';
 
 var express = require('express');
-var bodyparser = require('body-parser');
+var bodyParser = require('body-parser');
 var http = require('http');
-
+ 
 var app = express();
-app.use(bodyparser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+ 
 
 
-app.post("/get-ISS-details", function (req, res) {
-    if (req.body.queryResult.action == "Get-lat-long") {
+//console.log(breq.queryResult.action);
+app.post('/get-ISS-details', (req, res) => {
+    console.log(req.body);
+    if (req.body.queryResult.action == 'Get-lat-long') {
         
         const reqUrl = encodeURI(`http://api.open-notify.org/iss-now.json`);
         http.get(reqUrl, (responseFromAPI) => {
@@ -35,8 +39,4 @@ app.post("/get-ISS-details", function (req, res) {
             });
         });
 }
-});
-app.listen(process.env.PORT || 5000), () => {
-    console.log("Server is up and running...");
-};
 
